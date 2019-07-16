@@ -1,0 +1,89 @@
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #fff;
+  margin: 0px;
+  padding: 0px;
+  font-size: 16px;
+  text-align: center;
+}
+
+input, button {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+}
+
+.main-div, .loggedin-div{
+  width: 20%;
+  margin: 0px auto;
+  margin-top: 150px;
+  padding: 20px;
+}
+
+.main-div input{
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  padding: 15px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.main-div input:focus {
+  border: 1px solid #999;
+}
+
+.main-div button{
+  background: #5d8ffc;
+  color: #fff;
+  border: 0px;
+  border-radius: 5px;
+  padding: 5px;
+  display: block;
+  width: 100%;
+  transition: 0.3s;
+  margin-bottom: 10px;
+}
+
+.main-div button:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #5d8ffc;
+  border: 1px solid #5d8ffc;
+}
+
+.loggedin-div button{
+  background: #5d8ffc;
+  color: #fff;
+  border: 0px;
+  border-radius: 5px;
+  padding: 5px;
+  display: block;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.loggedin-div button:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #5d8ffc;
+  border: 1px solid #5d8ffc;
+}
+
+.register {
+  color: #000000;
+  font-size: 15px;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+
+.register:hover {
+  color: #5d8ffc;
+  cursor: pointer;
+}
+
+.socialLoginBtn:hover {
+  cursor: pointer;
+}

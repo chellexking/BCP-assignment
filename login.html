@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Firebase Login Authentication </title>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap" rel="stylesheet">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+
+  </head>
+
+  <body>
+
+      <div id="login-div" class="main-div">
+        <h2> Trago Web Login </h2>
+        <form id="registerForm">
+          <input type="email" placeholder="Email" id="email_input"/>
+          <input type="password" placeholder="Password" id="password_input"/>
+          <button onclick="login()"> Login to account </button>
+          <div class="register" onclick="register()"> Register </div>
+        </form>
+        <br>
+        <div class="socialLoginBtn" onclick="googleSignUp()"> <img src="google-login-button.png" height="38px"> </div>
+        <div class="socialLoginBtn" onclick="facebookSignUp()"> <img src="facebook-login-button.png" height="50px"></div>
+      </div>
+
+      <div id="user-div" class="loggedin-div">
+        <h3> Logged in </h3>
+        <p> Welcome to Trago. You are currently logged in. </p>
+        <h4> Build your own customized Trip Plan Here! <h4>
+        <button onclick="logout()"> Logout </button>
+      </div>
+
+      <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBZEKywj_-YkGrmEZDcJny4K55UA4FFnH8",
+        authDomain: "tourplanner-c1110.firebaseapp.com",
+        databaseURL: "https://tourplanner-c1110.firebaseio.com",
+        projectId: "tourplanner-c1110",
+        appId: "1:1032902429075:web:eb9b4810628e1b8b",
+        storageBucket: "gs://tourplanner-c1110.appspot.com"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Make Auth and Firestore References
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+      </script>
+
+
+      <script src="login.js"></script>
+  </body>
+</html>
