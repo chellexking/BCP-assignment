@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css?family=Dax:400,900");
+html {
+  background-color: #282828;
+  overflow: hidden;
+}
+
+.middle {
+  width: 100%;
+  text-align: center;
+  margin-top: 10%;
+  /* Made by */
+}
+.middle h2 {
+  font-family: "Dax", sans-serif;
+  color: #fff;
+}
+.middle input[type="radio"] {
+  display: none;
+}
+.middle input[type="radio"]:checked + .box {
+  background-color: #007e90;
+}
+.middle input[type="radio"]:checked + .box span {
+  color: white;
+  transform: translateY(70px);
+}
+.middle input[type="radio"]:checked + .box span:before {
+  transform: translateY(0px);
+  opacity: 1;
+}
+.middle .box {
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  transition: all 250ms ease;
+  will-change: transition;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  font-family: "Dax", sans-serif;
+  font-weight: 900;
+}
+.middle .box:active {
+  transform: translateY(10px);
+}
+.middle .box span {
+  position: absolute;
+  transform: translate(0, 60px);
+  left: 0;
+  right: 0;
+  transition: all 300ms ease;
+  font-size: 1.5em;
+  user-select: none;
+  color: #007e90;
+}
+.middle .box span:before {
+  font-size: 1.2em;
+  font-family: FontAwesome;
+  display: block;
+  transform: translateY(-80px);
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+  font-weight: normal;
+  color: white;
+}
+.middle .popular span:before {
+  content: "\f091";
+}
+.middle .hiddenGem span:before {
+  content: '\f219';
+}
+.middle .balanced span:before {
+  content: '\f1de';
+}
+.middle .vegetarian span:before {
+  content: "\f06c";
+}
+.middle .vegan span:before {
+  content: '\f06d';
+}
+.middle .halal span:before {
+  content: '\f1f9';
+}
+.middle .glutenFree span:before {
+  content: "\f0fc";
+}
+.middle .pescatarian span:before {
+  content: '\f0f5';
+}
+.middle .pollotarian span:before {
+  content: '\f0f5';
+}
+.middle p {
+  color: #fff;
+  font-family: "Dax", sans-serif;
+  font-weight: 400;
+}
+.middle p a {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #FFF;
+}
+.middle p span:after {
+  content: '\f0e7';
+  font-family: FontAwesome;
+  color: yellow;
+}
+
+
+@import url("https://fonts.googleapis.com/css?family=Mukta:700");
+* {
+  box-sizing: border-box;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Mukta', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+button.learn-more {
+  width: 12rem;
+  height: auto;
+  float:right;
+  margin-top:100px;
+  margin-right: 40px;
+}
+
+button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #007e90;
+  border-radius: 1.625rem;
+}
+button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: '';
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #007e90;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+button:hover .circle {
+  width: 100%;
+}
+button:hover .circle .icon.arrow {
+  background: #fff;
+  -webkit-transform: translate(1rem, 0);
+          transform: translate(1rem, 0);
+}
+button:hover .button-text {
+  color: #fff;
+}
+
+
+
+/*language */
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+label[for=favcity] {
+  position: relative;
+  display: block;
+  width: 400px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+label[for=favcity]::after {
+  content: ' ';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  display: block;
+  background: #24d7ea url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOBAMAAAGq7RFVAAAAJ1BMVEX///////////////////////////////////////////////////9Ruv0SAAAADHRSTlMACAoREoKDt7y9zc5qtZoyAAAAcklEQVQIHQXBsQnCUAAFwFOCCKbIABaWERzi1yaFAzmEpHYEC8GUKVQEkbyhvOOkZqdWt0/QYKqLzQeF7dv6y/RLwa2wYtk4Xxxe+t8yd1WuM/rcUc2gYHEeoP02umSgTR50ybBPRuiSZAS6ZAQ4jgCAPyjYJiRH4fymAAAAAElFTkSuQmCC') no-repeat center center;
+  pointer-events: none;
+}
+
+label[for=favcity] select {
+  border: 5px solid #eeeeee;
+  background: white;
+  padding: 7px 20px 7px 20px;
+  width: 100%;
+  font-size: 16px;
+  font-family: monospace;
+  cursor: pointer;
+}
+
+label[for=favcity] select::-ms-expand {
+    display: none;
+}
+
+label[for=favcity] :-moz-any(select) {
+  width: 110%;
+}
+
+label[for=favcity].ie9 select {
+  width: 110%;
+}
+
+label[for=favcity] select:focus {
+  outline: 1px dotted #A9A9A9;
+}
+
+
+/** physical limitations **/
+input[type=checkbox] + label {
+  display: block;
+  margin: 0.4em;
+  cursor: pointer;
+  padding: 0.4em;
+  color: #007e90;
+  font-family: 'Mukta', sans-serif;
+  font-size: 20px;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox] + label:before {
+  content: "\2714";
+  border: 0.1em solid #007e90;
+  border-radius: 0.2em;
+  display: inline-block;
+  width: 1.3em;
+  height: 1.3em;
+  padding-left: 0.2em;
+  padding-bottom: 0.3em;
+  margin-right: 0.2em;
+  vertical-align: bottom;
+  color: transparent;
+  transition: .2s;
+}
+
+input[type=checkbox] + label:active:before {
+  transform: scale(0);
+}
+
+input[type=checkbox]:checked + label:before {
+  background-color: #007e90;
+  border-color: #007e90;
+  color: #fff;
+}
+
+input[type=checkbox]:disabled + label:before {
+  transform: scale(1);
+  border-color: #aaa;
+}
+
+input[type=checkbox]:checked:disabled + label:before {
+  transform: scale(1);
+  background-color: #bfb;
+  border-color: #bfb;
+}
