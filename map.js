@@ -86,7 +86,6 @@ var picker = new Lightpick({
     }
 });
 
-
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyBZEKywj_-YkGrmEZDcJny4K55UA4FFnH8",
@@ -110,7 +109,7 @@ const dbRefObject = firebase.database().ref("Users/");
 
 form.addEventListener('submit', (e) => {
   dbRefObject.set({
-    John:{
+    Location_Date:{
       Place: form.location.value,
       Date_Start: form.startDate.value,
       Date_End: form.endDate.value

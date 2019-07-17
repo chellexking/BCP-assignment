@@ -3,28 +3,31 @@
 <head>
 <link rel="stylesheet" href="requirements.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
   </head>
   <body>
 
-  <form action="dietPreference.html">
+  <form id="requirement-form" action="dietPreference.html">
   <div class="middle">
     <h2>Activities Preferences</h2> <br><br>
     <label>
-      <input type="radio" name="radio" checked/>
+      <input type="radio" name="activity" value="popular"/>
       <div class="popular box">
         <span>Popular</span>
       </div>
     </label>
 
     <label>
-      <input type="radio" name="radio"/>
+      <input type="radio" name="activity" value="balanced"/>
       <div class="balanced box">
         <span>Balanced</span>
       </div>
     </label>
 
     <label>
-      <input type="radio" name="radio"/>
+      <input type="radio" name="activity" value="hiddengem"/>
       <div class="hiddenGem box">
         <span>Hidden Gems</span>
       </div>
@@ -37,6 +40,20 @@
   </div>
   <p class="button-text">Next</p>
 </button>
+<div id="container">
+
+</div>
 </form>
+<form action="map.html">
+  <button class="learn-more" style="float:left; margin-left:50px;" type="submit" >
+    <div class="circle">
+      <span class="icon arrowback"></span>
+    </div>
+    <p class="button-text">Back</p>
+  </button>
+</form>
+
+<script src="requirements.js"></script>
+
     </body>
   </html>

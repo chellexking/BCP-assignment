@@ -207,6 +207,25 @@ button:hover .button-text {
   color: #fff;
 }
 
+button.learn-more .circle .icon.arrowback {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 1.125rem;
+  width: 0.625rem;
+  height: 0.125rem;
+  background: none;
+}
+button.learn-more .circle .icon.arrowback::before {
+  position: absolute;
+  content: '';
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+}
 
 
 /*language */
