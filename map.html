@@ -28,6 +28,20 @@
 </form>
 
  <script src="map.js"></script>
+ <script>
+ ///Lightpick datepicker config
+ var picker = new Lightpick({
+     field: document.getElementById('demo-3_1'),
+     secondField: document.getElementById('demo-3_2'),
+     singleDate: false,
+     onSelect: function(start, end){
+         var str = '';
+         str += start ? start.format('Do MMMM YYYY') + ' to ' : '';
+         str += end ? end.format('Do MMMM YYYY') : '...';
+         document.getElementById('result-3').innerHTML = str;
+     }
+ });
+ </script>
   </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9bg29hrbFkIEeXDU7dEDMnQE-T4pK-Mg&libraries=places&callback=initAutocomplete"
          async defer></script>

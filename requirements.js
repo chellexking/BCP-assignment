@@ -1,3 +1,22 @@
+var qs = (function(a) {
+    if (a == "") return {};
+    var b = {};
+    for (var i = 0; i < a.length; ++i)
+    {
+        var p=a[i].split('=', 2);
+        if (p.length == 1)
+            b[p[0]] = "";
+        else
+            b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+    }
+    return b;
+})(window.location.search.substr(1).split('&'));
+
+// window.alert(qs["location"]);
+const place = qs["location"];
+const startDate = qs["startDate"];
+const endDate = qs["endDate"];
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyBZEKywj_-YkGrmEZDcJny4K55UA4FFnH8",
@@ -21,8 +40,13 @@ const dbRefObject = firebase.database().ref("Users/");
 
 form.addEventListener('submit', (e) => {
   dbRefObject.set({
-    Activities_Preference:{
-     Preference: document.querySelector('input[name="activity"]:checked').value
+        Location_Date:{
+          Place: place,
+          Date_Start: startDate,
+          Date_End: endDate
+        },
+        Activities_Preference:{
+         Preference: document.querySelector('input[name="activity"]:checked').value
     }
   })
 })

@@ -73,46 +73,45 @@ function initAutocomplete() {
   });
 }
 
-///Lightpick datepicker config
-var picker = new Lightpick({
-    field: document.getElementById('demo-3_1'),
-    secondField: document.getElementById('demo-3_2'),
-    singleDate: false,
-    onSelect: function(start, end){
-        var str = '';
-        str += start ? start.format('Do MMMM YYYY') + ' to ' : '';
-        str += end ? end.format('Do MMMM YYYY') : '...';
-        document.getElementById('result-3').innerHTML = str;
-    }
-});
 
-// Your web app's Firebase configuration
-var firebaseConfig = {
-  apiKey: "AIzaSyBZEKywj_-YkGrmEZDcJny4K55UA4FFnH8",
-  authDomain: "tourplanner-c1110.firebaseapp.com",
-  databaseURL: "https://tourplanner-c1110.firebaseio.com",
-  projectId: "tourplanner-c1110",
-  appId: "1:1032902429075:web:eb9b4810628e1b8b",
-  storageBucket: "gs://tourplanner-c1110.appspot.com"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
 
-// Make database References
-const db = firebase.database();
+// const form = document.querySelector("#place-search-form");
+//
+// window.onload = function() {
+//    var getData = document.querySelector('[name="location"]').value;
+//    localStorage.setItem("location1",getData);
+// }
 
-//for input values to save to firebase
-const form = document.querySelector("#place-search-form");
-
-// Create References
-const dbRefObject = firebase.database().ref("Users/");
-
-form.addEventListener('submit', (e) => {
-  dbRefObject.set({
-    Location_Date:{
-      Place: form.location.value,
-      Date_Start: form.startDate.value,
-      Date_End: form.endDate.value
-    }
-  })
-})
+// // Your web app's Firebase configuration
+// var firebaseConfig = {
+//   apiKey: "AIzaSyBZEKywj_-YkGrmEZDcJny4K55UA4FFnH8",
+//   authDomain: "tourplanner-c1110.firebaseapp.com",
+//   databaseURL: "https://tourplanner-c1110.firebaseio.com",
+//   projectId: "tourplanner-c1110",
+//   appId: "1:1032902429075:web:eb9b4810628e1b8b",
+//   storageBucket: "gs://tourplanner-c1110.appspot.com"
+// };
+// // Initialize Firebase
+// firebase.initializeApp(firebaseConfig);
+//
+// // Make database References
+// const db = firebase.database();
+//
+// //for input values to save to firebase
+// const form = document.querySelector("#place-search-form");
+//
+// // Create References
+// const dbRefObject = firebase.database().ref("Users/");
+//
+// form.addEventListener('submit', (e) => {
+//   dbRefObject.set({
+//     Location_Date:{
+//       Place: form.location.value,
+//       Date_Start: form.startDate.value,
+//       Date_End: form.endDate.value
+//     },
+//     Preference:{
+//       Hello: "bye"
+//     }
+//   })
+// })
