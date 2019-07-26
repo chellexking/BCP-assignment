@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8"/>
+		 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link href="style.css" rel="stylesheet">
+        <title>TABS</title>
+
+        <body>
+			<ul class="tab-bar">
+				<li data-num="1" class="tab wave dark">Attractions</li>
+				<li data-num="2" class="tab wave dark">Day by Day</li>
+				<li data-num="3" class="tab wave dark"> Where to Stay</li>
+				<li data-num="4" class="tab wave dark">Where to Eat</li>
+				<li data-num="5" class="tab wave dark">Tour Guide</li>
+				<div class="indicator"></div>
+			</ul>
+        </body>
+
+    </head>
+    <body>
+<center>
+
+    <div class="border">
+      <h2 style="margin: 30px auto;"> Tour Guides in Kuala Lumpur </h2>
+      <div class="wrapper">
+
+      <div class="profile-card">
+
+          <div class="profile-body">
+                <div class="author-img">
+                    <img src="profileImg.jpeg" alt="">
+                </div>
+                <div class="name">Robert smith</div>
+                <div class="intro">
+                   <p>Robert smith is an enthsiastic and passionate story
+                       Teller.He loves to do different
+                        home-made things and share to the world.
+                   </p>
+                   <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> Kuala Lumpur <br><br>
+                   <button> Book me </button>
+                </div>
+          </div>
+      </div>
+
+  </div>
+  </div>
+
+
+
+      <script type="text/javascript">
+
+
+
+				var waveBtn = (function () {
+		  'use strict';
+		  var btn = document.querySelectorAll('.wave'),
+			  tab = document.querySelector('.tab-bar'),
+			  indicator = document.querySelector('.indicator'),
+			  indi = 0;
+		  indicator.style.marginLeft = indi + 'px';
+
+		  for(var i = 0; i < btn.length; i++) {
+			btn[i].onmousedown = function (e) {
+			  var newRound = document.createElement('div'),x,y;
+
+			  newRound.className = 'cercle';
+			  this.appendChild(newRound);
+
+			  x = e.pageX - this.offsetLeft;
+			  y = e.pageY - this.offsetTop;
+
+			  newRound.style.left = x + "px";
+			  newRound.style.top = y + "px";
+			  newRound.className += " anim";
+
+			  indicator.style.marginLeft = indi + (this.dataset.num-1) * 200 + 'px';
+
+			  setTimeout(function() {
+				newRound.remove();
+			  }, 1200);
+			};
+		  }
+		}());
+
+      </script>
+      </body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8"/>
+		 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="lightpick.css">
+     <link href="style.css" rel="stylesheet">
+        <title>TABS</title>
+
+        <body>
+			<ul class="tab-bar">
+				<li data-num="1" class="tab wave dark">Attractions</li>
+				<li data-num="2" class="tab wave dark">Day by Day</li>
+				<li data-num="3" class="tab wave dark"> Where to Stay</li>
+				<li data-num="4" class="tab wave dark">Where to Eat</li>
+				<li data-num="5" class="tab wave dark">Tour Guide</li>
+				<div class="indicator"></div>
+			</ul>
+        </body>
+
+    </head>
+    <body>
+<center>
+
+    <div class="border">
+      <h2 style="margin: 30px auto; padding-bottom:30px;"> ___ Days in Kuala Lumpur </h2>
+        <div class="time-line">
+  	<div class="item" data-title="1993">
+  		<h2>Welcome,</h2>
+  		<ul style="list-style: inside;">
+  			<li>Lorem ipsum dolor sit.</li>
+  			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, omnis.</li>
+  			<li>Lorem, ipsum dolor.</li>
+  			<li>Lorem ipsum dolor sit amet consectetur.</li>
+  			<li>Lorem, ipsum dolor. <a href="#">test link here</a></li>
+  		</ul>
+  	</div>
+  	<div class="item">
+  		<h2>Welcome,</h2>
+  		<ul style="list-style: inside;">
+  			<li>Lorem ipsum dolor sit.</li>
+  			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, omnis.</li>
+  			<li>Lorem, ipsum dolor.</li>
+  			<li>Lorem ipsum dolor sit amet consectetur.</li>
+  			<li>Lorem, ipsum dolor. <a href="#">test link here</a></li>
+  		</ul>
+  	</div>
+  	<div class="item">
+  		<h2>Welcome,</h2>
+  		<ul style="list-style: inside;">
+  			<li>Lorem ipsum dolor sit.</li>
+  			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, omnis.</li>
+  			<li>Lorem, ipsum dolor.</li>
+  			<li>Lorem ipsum dolor sit amet consectetur.</li>
+  			<li>Lorem, ipsum dolor. <a href="#">test link here</a></li>
+  		</ul>
+  	</div>
+  	<div class="item"></div>
+  	<div class="item"></div>
+  	<div class="item">
+  		<h2>Welcome,</h2>
+  		<ul style="list-style: inside;">
+  			<li>Lorem ipsum dolor sit.</li>
+  			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, omnis.</li>
+  			<li>Lorem, ipsum dolor.</li>
+  			<li>Lorem ipsum dolor sit amet consectetur.</li>
+  			<li>Lorem, ipsum dolor. <a href="#">test link here</a></li>
+  		</ul>
+  	</div>
+  </div>
+        </div>
+
+
+
+      <script type="text/javascript">
+
+
+
+				var waveBtn = (function () {
+		  'use strict';
+		  var btn = document.querySelectorAll('.wave'),
+			  tab = document.querySelector('.tab-bar'),
+			  indicator = document.querySelector('.indicator'),
+			  indi = 0;
+		  indicator.style.marginLeft = indi + 'px';
+
+		  for(var i = 0; i < btn.length; i++) {
+			btn[i].onmousedown = function (e) {
+			  var newRound = document.createElement('div'),x,y;
+
+			  newRound.className = 'cercle';
+			  this.appendChild(newRound);
+
+			  x = e.pageX - this.offsetLeft;
+			  y = e.pageY - this.offsetTop;
+
+			  newRound.style.left = x + "px";
+			  newRound.style.top = y + "px";
+			  newRound.className += " anim";
+
+			  indicator.style.marginLeft = indi + (this.dataset.num-1) * 200 + 'px';
+
+			  setTimeout(function() {
+				newRound.remove();
+			  }, 1200);
+			};
+		  }
+		}());
+
+      </script>
+      </body>
+
+</html>

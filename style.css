@@ -1,89 +1,307 @@
 body {
-  font-family: 'Nunito', sans-serif;
-  background: #fff;
-  margin: 0px;
-  padding: 0px;
-  font-size: 16px;
-  text-align: center;
+			  height: 100%;
+			  background: #FAFAFA;
+			  overflow: scroll;
+			  font-family: 'Roboto', sans-serif;
+
+			  display: -webkit-box;
+			  display: -ms-flexbox;
+			  display: flex;
+			  -webkit-box-orient: vertical;
+			  -webkit-box-direction: normal;
+				  -ms-flex-direction: column;
+					  flex-direction: column;
+			}
+
+			.tab-bar {
+			  margin: 30px auto;
+			  display: -webkit-box;
+			  display: -ms-flexbox;
+			  display: flex;
+			  list-style-type: none;
+			  -webkit-padding-start: 0;
+
+			  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+			}
+
+			.tab {
+			  width: 200px;
+			  padding: 20px 0;
+			  background: white;
+			  color: #607D8B;
+			  overflow: hidden;
+			  text-align: center;
+			  -webkit-box-flex: 1;
+				  -ms-flex-positive: 1;
+					  flex-grow: 1;
+			  cursor: pointer;
+			  position: relative;
+
+			  -webkit-user-select: none;
+			  -moz-user-select: none;
+			  -ms-user-select: none;
+			  -o-user-select: none;
+			  user-select: none;
+			}
+
+			.indicator {
+			  width: 200px;
+			  height: 3px;
+			  background: #2196F3;
+			  position: absolute;
+			  margin-top: 58px;
+			  margin-left:50px;
+
+			  -webkit-transition: margin 0.5s ease;
+
+			  transition: margin 0.5s ease;
+			}
+
+			.cercle {
+			  width: 0px;
+			  height: 0px;
+			  position: absolute;
+			}
+
+			.light .cercle {background: white}
+			.dark .cercle {background: black}
+
+			.anim {
+			  opacity: 0.2;
+			  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+			  -webkit-animation: touch 1.2s ease-out;
+					  animation: touch 1.2s ease-out;
+			}
+
+			@-webkit-keyframes touch {
+			  100% {
+				width: 600px;
+				height: 600px;
+				border-radius: 600px;
+				opacity: 0;
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+				margin: -300px;
+			  }
+			}
+
+			@keyframes touch {
+			  100% {
+				width: 600px;
+				height: 600px;
+				border-radius: 600px;
+				opacity: 0;
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+				margin: -300px;
+			  }
+			}
+
+/* for hotels - whereToStay */
+
+      .hotel-booking-container{
+        width: 400px;
+        border: 1px solid #dedede;
+
+      }
+
+      .logo{
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .hotel-booking-container button{
+        background: #ff5a5f;
+        color: #fff;
+        border: 0px;
+        border-radius: 20px;
+        padding: 7px;
+        display: block;
+        width: 55%;
+        transition: 0.3s;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 14px;
+      }
+
+      .hotel-booking-container button:hover {
+        cursor: pointer;
+        -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+        transition: all 0.4s ease 0s;
+      }
+
+      #demo-3_1, #demo-3_2 {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 13px;
+        padding: 8px 13px 8px 13px;
+        text-overflow: ellipsis;
+      }
+
+      .wrapper {
+        width: 900px;
+        padding-bottom: 50px;
+        border: 1px solid transparent;
+        overflow: hidden; /* add this to contain floated children */
+      }
+
+      .border{
+        background: white;
+        width: 1000px;
+        border: 1px solid #dedede;
+      }
+
+/* for attractions only */
+
+      .card-img-top {
+          width: 100%;
+          height: 15vw;
+          object-fit: cover;
+      }
+
+/* for timeline - daybyday */
+
+      .time-line {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.time-line .item {
+  width: auto;
+  min-height: 100px;
+  background-color: #eee;
+  margin-top: 2rem;
+  position: relative;
+  margin-left: 1rem;
+  padding: .5rem 1rem;
+}
+.time-line .item:first-of-type:after {
+  top: 50%;
+}
+.time-line .item:last-of-type:after {
+  bottom: 50%;
+}
+.time-line .item:nth-of-type(odd):before {
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+}
+.time-line .item:nth-of-type(even):before {
+  -webkit-animation-delay: .25s;
+          animation-delay: .25s;
+}
+.time-line .item:after {
+  content: '';
+  position: absolute;
+  top: -2rem;
+  bottom: -2rem;
+  width: 2px;
+  background-color: #eee;
+  left: -1rem;
+}
+.time-line .item:before {
+  z-index: 2;
+  content: '';
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  background-color: dodgerblue;
+  left: -1.45rem;
+  top: calc(50% - .5rem);
+  -webkit-animation: pulse 3s linear infinite;
+          animation: pulse 3s linear infinite;
 }
 
-input, button {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
+@-webkit-keyframes pulse {
+  0%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
 }
 
-.main-div, .loggedin-div{
-  width: 20%;
-  margin: 0px auto;
-  margin-top: 150px;
-  padding: 20px;
+@keyframes pulse {
+  0%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
 }
 
-.main-div input{
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background: #fff;
-  padding: 15px;
-  outline: none;
-  width: 100%;
-  margin-bottom: 20px;
-  transition: 0.3s;
+
+/* for tour guides only*** */
+
+
+img{
+    width: 100%;
+    height: auto;
 }
 
-.main-div input:focus {
-  border: 1px solid #999;
+.profile-card{
+    width: 400px;
+    height: auto;
+    text-align: center;
+    margin: 20px auto;
+    box-shadow:  0px 0px 18px #ccc;
 }
 
-.main-div button{
-  background: #5d8ffc;
+.profile-card .profile-body{
+    background-color: var(--white);
+    padding: 40px 40px 40px 40px;
+}
+
+.profile-card .profile-body .author-img{
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+.profile-card .profile-body .author-img img{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: var(--white);
+}
+
+.profile-card .profile-body .name{
+   font-size: 20px;
+   font-weight: 600;
+   text-transform: uppercase;
+
+}
+.profile-card .profile-body .intro{
+   font-size: 14px;
+   font-weight: 400;
+   line-height: 1.6;
+   margin: 20px  0px 30px  0px;
+
+}
+
+button{
+  background: #FF8C00;
   color: #fff;
   border: 0px;
   border-radius: 5px;
   padding: 5px;
   display: block;
-  width: 100%;
+  width: 22%;
   transition: 0.3s;
   margin-bottom: 10px;
-}
-
-.main-div button:hover {
-  cursor: pointer;
-  background: #fff;
-  color: #5d8ffc;
-  border: 1px solid #5d8ffc;
-}
-
-.loggedin-div button{
-  background: #5d8ffc;
-  color: #fff;
-  border: 0px;
-  border-radius: 5px;
-  padding: 5px;
-  display: block;
-  width: 100%;
-  transition: 0.3s;
-}
-
-.loggedin-div button:hover {
-  cursor: pointer;
-  background: #fff;
-  color: #5d8ffc;
-  border: 1px solid #5d8ffc;
-}
-
-.register {
-  color: #000000;
+  margin-top: 20px;
   font-size: 15px;
-  text-decoration: underline;
-  transition: 0.3s;
+  font-family: roboto;
+  position: absolute;
 }
 
-.register:hover {
-  color: #5d8ffc;
+button:hover {
   cursor: pointer;
-}
-
-.socialLoginBtn:hover {
-  cursor: pointer;
+  background: #fff;
+  color: #FF8C00;
+  border: 1px solid #FF8C00;
 }
