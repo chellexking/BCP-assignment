@@ -3,30 +3,33 @@
 <head>
 <link rel="stylesheet" href="requirements.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
   </head>
   <body>
 
   <div class="middle">
     <h2>Special Needs</h2> <br><br>
-    <form>
-      <input type="checkbox" id="fruit1" name="fruit-1" value="Apple">
+    <form action="attractions.html" id="special-Needs">
+      <input class="specialNeeds" type="checkbox" id="fruit1" value="Mobility/Physical Impairments">
       <label for="fruit1"> Mobility/Physical Impairments </label>
-      <input type="checkbox" id="fruit2" name="fruit-2" value="Banana" >
+      <input class="specialNeeds" type="checkbox" id="fruit2" value="Pregnant">
       <label for="fruit2"> Pregnant </label>
-      <input type="checkbox" id="fruit3" name="fruit-3" value="Cherry" >
+      <input class="specialNeeds" type="checkbox" id="fruit3" value="Infant">
       <label for="fruit3"> Infant </label>
-      <input type="checkbox" id="fruit4" name="fruit-4" value="Strawberry">
+      <input class="specialNeeds" type="checkbox" id="fruit4" value="Senior Citizens">
       <label for="fruit4"> Senior Citizens</label>
-    </form>
 
 </div>
 
-<button class="learn-more">
+<button class="learn-more" type="submit" onclick="submitSpecialNeeds()">
   <div class="circle">
     <span class="icon arrow"></span>
   </div>
   <p class="button-text">Next</p>
 </button>
+</form>
 
 <form action="languagePreference.html">
   <button class="learn-more" style="float:left; margin-left:50px;" type="submit" >
@@ -36,6 +39,6 @@
     <p class="button-text">Back</p>
   </button>
 </form>
-
+  <script src="requirements.js"></script>
     </body>
   </html>

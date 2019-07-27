@@ -3,52 +3,57 @@
 <head>
 <link rel="stylesheet" href="requirements.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
   </head>
   <body>
-<form action="languagePreference.html">
+
+
+<form action="languagePreference.html" id="diet-Preference">
   <div class="middle">
     <h2>Dietary Preferences</h2> <br><br>
     <label>
-      <input type="radio" name="radio" checked/>
+      <input type="radio" name="meal" value="Vegetarian" checked/>
       <div class="vegetarian box">
         <span>Vegetarian</span>
       </div>
     </label>
 
     <label>
-      <input type="radio" name="radio"/>
+      <input type="radio" name="meal" value="Vegan"/>
       <div class="vegan box">
         <span>Vegan</span>
       </div>
     </label>
 
     <label>
-      <input type="radio" name="radio"/>
+      <input type="radio" name="meal" value="Halal"/>
       <div class="halal box">
         <span>Halal</span>
       </div>
     </label>
     <label>
-      <input type="radio" name="radio"/>
+      <input type="radio" name="meal" value="glutenFree"/>
       <div class="glutenFree box">
         <span>Gluten Free</span>
       </div>
     </label>
     <label>
-      <input type="radio" name="radio"/>
+      <input type="radio" name="meal" value="Pescatarian"/>
       <div class="pescatarian box">
         <span>Pescatarian</span>
       </div>
     </label>
     <label>
-      <input type="radio" name="radio"/>
+      <input type="radio" name="meal" value="Pollotarian"/>
       <div class="pollotarian box">
         <span>Pollotarian</span>
       </div>
     </label>
 </div>
 
-<button class="learn-more" type="submit">
+<button class="learn-more" type="submit" onclick="submitDiet()">
   <div class="circle">
     <span class="icon arrow"></span>
   </div>
@@ -57,12 +62,14 @@
 </form>
 
 <form action="requirements.html">
-  <button class="learn-more" style="float:left; margin-left:50px;" type="submit" >
+  <button class="learn-more" style="float:left; margin-left:50px;" type="submit">
     <div class="circle">
       <span class="icon arrowback"></span>
     </div>
     <p class="button-text">Back</p>
   </button>
 </form>
+
+<script src="requirements.js"></script>
     </body>
   </html>

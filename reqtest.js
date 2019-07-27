@@ -1,3 +1,22 @@
+// var qs = (function(a) {
+//     if (a == "") return {};
+//     var b = {};
+//     for (var i = 0; i < a.length; ++i)
+//     {
+//         var p=a[i].split('=', 2);
+//         if (p.length == 1)
+//             b[p[0]] = "";
+//         else
+//             b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+//     }
+//     return b;
+// })(window.location.search.substr(1).split('&'));
+
+// window.alert(qs["location"]);
+// const place = qs["location"];
+// const startDate = qs["startDate"];
+// const endDate = qs["endDate"];
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyBZEKywj_-YkGrmEZDcJny4K55UA4FFnH8",
@@ -17,15 +36,11 @@ const db = firebase.database();
 const form = document.querySelector("#place-search-form");
 const form1 = document.querySelector("#requirement-form")
 const form2 = document.querySelector("#diet-Preference");
-const form3 = document.querySelector("#language-Preference");
-const form4 = document.querySelector("#special-Needs");
 
 // Create References
 const dbRefObject = firebase.database().ref("Users/Location_Date");
 const dbRefObject1 = firebase.database().ref("Users/Activity");
 const dbRefObject2 = firebase.database().ref("Users/Diet");
-const dbRefObject3 = firebase.database().ref("Users/Language");
-const dbRefObject4 = firebase.database().ref("Users/Special_Needs");
 
 function submitLocation_Date(){
   form.addEventListener('submit', (e) => {
@@ -54,29 +69,6 @@ function submitDiet() {
     dbRefObject2.set({
           Diet_Preference:{
            Preference: document.querySelector('input[name="meal"]:checked').value
-      }
-    })
-  })
-}
-
-function submitLanguage(){
-  var e = document.getElementById ("favlang");
-  var language = e.options[e.selectedIndex].value;
-
-  form3.addEventListener('submit', (e) => {
-    dbRefObject3.set({
-           Language_Preference:{
-           Preference: language
-      }
-    })
-  })
-}
-
-function submitSpecialNeeds(){
-  form4.addEventListener('submit', (e) => {
-    dbRefObject4.set({
-           Special_Needs:{
-           Special_Needs: document.querySelector('.specialNeeds:checked').value
       }
     })
   })

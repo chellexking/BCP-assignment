@@ -5,18 +5,29 @@
 		 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
      <link rel="stylesheet" type="text/css" href="lightpick.css">
      <link href="style.css" rel="stylesheet">
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+     <nav class="navbar navbar-dark bg-dark">
+       <div class="container">
+         <span class="navbar-brand mb-0 h1"><i class="fas fa-plane mr-2"></i>Trago</span>
+       </div>
+     </nav>
+
         <title>TABS</title>
 
         <body>
 			<ul class="tab-bar">
-				<li data-num="1" class="tab wave dark">Attractions</li>
-				<li data-num="2" class="tab wave dark">Day by Day</li>
-				<li data-num="3" class="tab wave dark"> Where to Stay</li>
-				<li data-num="4" class="tab wave dark">Where to Eat</li>
-				<li data-num="5" class="tab wave dark">Tour Guide</li>
+        <li data-num="1" class="tab wave dark" onclick="OpenAttraction();">Attraction</li>
+				<li data-num="2" class="tab wave dark" onclick="OpenDaybyday();">Day by Day</li>
+				<li data-num="3" class="tab wave dark" onclick="OpenWheretostay();"> Where to Stay</li>
+				<li data-num="4" class="tab wave dark" onclick="OpenWheretoeat();">Where to Eat</li>
+				<li data-num="5" class="tab wave dark" onclick="OpenTourguide();">Tour Guide</li>
 				<div class="indicator"></div>
 			</ul>
         </body>
+
 
     </head>
     <body>
@@ -37,19 +48,20 @@
       <div class="hotel-booking-container" style="float:left; margin-right: 50px;"><center>
           <div class="logo"><img src="tripadvisorLogo.png" style="height: 50px; width: 260px;"></img></div>
           <div class="text"> Millions of travel reviews on TripAdvisor </div>
-          <input type="text" name="startDate" id="demo-3_1" placeholder="Start Date" style="margin-top:20px;">
-          <input type="text" name="endDate" id="demo-3_2" placeholder="End Date" style="margin-top:20px;"> <br>
-          <button style="background:#00AF87; "> Find Homes </button>
+          <input type="text" class="datePanel" name="startDate" id="demo-3_1" placeholder="Start Date" style="margin-top:20px;">
+          <input type="text" class="datePanel" name="endDate" id="demo-3_2" placeholder="End Date" style="margin-top:20px;"> <br>
+          <button style="background:#00AF87; "> Find Hotels </button>
         </div>
 
         <div class="hotel-booking-container" style="overflow:hidden;"><center>
             <div class="logo"><img src="airbnbLogo.png" style="height: 50px; width: 160px;"></img></div>
             <div class="text"> Live like a local, find unique places to stay </div>
-            <input type="text" name="startDate" id="demo-3_1" placeholder="Start Date" style="margin-top:20px;">
-            <input type="text" name="endDate" id="demo-3_2" placeholder="End Date" style="margin-top:20px;"> <br>
-            <button> Find Homes </button>
+            <input type="text" class="datePanel" name="startDate" id="demo1" placeholder="Start Date" style="margin-top:20px;">
+            <input type="text" class="datePanel" name="endDate" id="demo2" placeholder="End Date" style="margin-top:20px;"> <br>
+            <button onclick="findHomes()"> Find Homes </button>
           </div>
           </div>
+          <button class="backButton" onclick="backToRequirements()"> Back to Requirements </button>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
         <script src="lightpick.js"></script>
@@ -65,11 +77,24 @@
             singleDate: false,
             onSelect: function(start, end){
                 var str = '';
-                str += start ? start.format('Do MMMM YYYY') + ' to ' : '';
-                str += end ? end.format('Do MMMM YYYY') : '...';
+                str += start ? start.format('YYYY MMMM Do') + ' to ' : '';
+                str += end ? end.format('YYYY MMMM Do') : '...';
                 document.getElementById('result-3').innerHTML = str;
             }
         });
+
+        var picker1 = new Lightpick({
+            field: document.getElementById('demo1'),
+            secondField: document.getElementById('demo2'),
+            singleDate: false,
+            onSelect: function(start, end){
+                var str = '';
+                str += start ? start.format('YYYY MMMM Do') + ' to ' : '';
+                str += end ? end.format('YYYY MMMM Do') : '...';
+                document.getElementById('result-3').innerHTML = str;
+            }
+        });
+
         </script>
 
       <script type="text/javascript">
@@ -107,6 +132,36 @@
 		  }
 		}());
 
+
+
+        // this is for deeplinking
+// https://www.tripadvisor.com.my/Hotels-g660694
+// -Penang_Island_Penang-Hotels.html
+// https://www.tripadvisor.com.my/Hotels-g1777471-Kuala_Selangor_Selangor-Hotels.html
+
+
+        function findHomes() {
+          var checkIn = document.getElementById("demo1").value;
+          var checkOut = document.getElementById("demo2").value;
+
+          var link = "https://www.airbnb.com/s/Penang-Malaysia/homes?=autocomplete_checkin=" + checkIn + "&checkout=" + checkOut ;
+
+          window.open(link);
+        }
+
+        //this is for the tabs links
+        function OpenAttraction(){
+          window.location = "attractions.html";}
+          function OpenDaybyday(){
+          window.location = "daybyday.html";}
+          function OpenWheretostay(){
+          window.location = "whereToStay.html";}
+          function OpenWheretoeat(){
+          window.location = "whereToEat.html";}
+          function OpenTourguide(){
+          window.location = "tourGuide.html";}
+          function backToRequirements(){
+          window.location = "map.html";}
       </script>
       </body>
 

@@ -130,13 +130,13 @@ body {
         transition: all 0.4s ease 0s;
       }
 
-      #demo-3_1, #demo-3_2 {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 13px;
-        padding: 8px 13px 8px 13px;
-        text-overflow: ellipsis;
-      }
+			.datePanel {
+				background-color: #fff;
+				font-family: Roboto;
+				font-size: 13px;
+				padding: 8px 13px 8px 13px;
+				text-overflow: ellipsis;
+			}
 
       .wrapper {
         width: 900px;
@@ -283,7 +283,7 @@ img{
 
 }
 
-button{
+.bookme{
   background: #FF8C00;
   color: #fff;
   border: 0px;
@@ -299,9 +299,28 @@ button{
   position: absolute;
 }
 
-button:hover {
+.bookme:hover {
   cursor: pointer;
   background: #fff;
   color: #FF8C00;
   border: 1px solid #FF8C00;
+}
+
+.backButton{
+  background: #464646;
+  color: #fff;
+  border: 0px;
+  border-radius: 5px;
+  padding: 5px;
+  display: block;
+  width: 20%;
+  transition: 0.3s;
+  margin-bottom: 10px;
+}
+
+.backButton:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #464646;
+  border: 1px solid #464646;
 }

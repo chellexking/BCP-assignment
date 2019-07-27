@@ -14,11 +14,11 @@ input, button {
 
 .main-div, .loggedin-div{
   width: 20%;
-  margin: 0px auto;
+  margin: 150px auto;
   padding: 20px;
 }
 
-.main-div input{
+.main-div input, .loggedin-div input{
   display: block;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -30,11 +30,11 @@ input, button {
   transition: 0.3s;
 }
 
-.main-div input:focus {
+.main-div input:focus, .loggedin-div input:focus {
   border: 1px solid #999;
 }
 
-.main-div button{
+.main-div button, .loggedin-div button{
   background: #5d8ffc;
   color: #fff;
   border: 0px;
@@ -46,39 +46,21 @@ input, button {
   margin-bottom: 10px;
 }
 
-.main-div button:hover {
+.main-div button:hover, .loggedin-div button:hover {
   cursor: pointer;
   background: #fff;
   color: #5d8ffc;
   border: 1px solid #5d8ffc;
 }
 
-.loggedin-div button{
-  background: #5d8ffc;
-  color: #fff;
-  border: 0px;
-  border-radius: 5px;
-  padding: 5px;
-  display: block;
-  width: 100%;
-  transition: 0.3s;
-}
-
-.loggedin-div button:hover {
-  cursor: pointer;
-  background: #fff;
-  color: #5d8ffc;
-  border: 1px solid #5d8ffc;
-}
-
-.register {
+.register, .login {
   color: #000000;
   font-size: 15px;
   text-decoration: underline;
   transition: 0.3s;
 }
 
-.register:hover {
+.register:hover, .login:hover {
   color: #5d8ffc;
   cursor: pointer;
 }
@@ -86,17 +68,3 @@ input, button {
 .socialLoginBtn:hover {
   cursor: pointer;
 }
-
-.jumbotron{
-  background-size: cover;
-  background-color: #00B6B6;
-  background-position: center;
-}
-
-.c-title {
-   position: relative;
-   text-align: center;
-   font-size: 2.5em;
-   padding: 32px 0 0 0;
-   font-family: 'Playfair Display', serif;
-   font-weight: 900;

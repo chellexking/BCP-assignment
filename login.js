@@ -1,29 +1,31 @@
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
-    document.getElementById('user-div').style.display = "block";
-    document.getElementById('login-div').style.display = "none";
-  } else {
-    // No user is signed in.
-    document.getElementById('user-div').style.display = "none";
-    document.getElementById('login-div').style.display = "block";
-
+    window.location = "map.html";
   }
 });
 
+function registerForm(){
+  document.getElementById('register-div').style.display = "block";
+  document.getElementById('login-div').style.display = "none";
+}
+
+function loginForm(){
+  document.getElementById('register-div').style.display = "none";
+  document.getElementById('login-div').style.display = "block";
+}
 
 function login(){
   var userEmail = document.getElementById('email_input').value;
   var password = document.getElementById('password_input').value;
 
-  firebase.auth().signInWithEmailAndPassword(userEmail, password).catch(function(error) {
+  auth.signInWithEmailAndPassword(userEmail, password).catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
   // alert the error
   window.alert('Error:' + errorMessage);
 });
-
 }
 
 function logout(){
@@ -33,11 +35,11 @@ function logout(){
 
 
 function register(){
-  var userEmail = document.getElementById('email_input').value;
-  var password = document.getElementById('password_input').value;
+  var regEmail = document.getElementById('reg_email').value;
+  var regPassword = document.getElementById('reg_password').value;
   const signUpForm = document.getElementById('registerForm');
 
-  auth.createUserWithEmailAndPassword(userEmail,password).then(cred => {
+  auth.createUserWithEmailAndPassword(regEmail,regPassword).then(cred => {
     console.log(cred.user);
     window.alert("Account is Successfully Created");
     signUpForm.reset();

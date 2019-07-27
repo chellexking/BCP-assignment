@@ -9,6 +9,10 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+
+
+
   </head>
   <body>
 
@@ -24,7 +28,8 @@
  <input id="pac-input" class="controls" type="text" name="location" placeholder="Where do you want to go?"> <br>
  <input type="text" name="startDate" id="demo-3_1" placeholder="Start Date" style="margin-top:20px;">
  <input type="text" name="endDate" id="demo-3_2" placeholder="End Date" style="margin-top:20px;"> <br>
-  <button type="submit"> Start Planning </button>
+  <button type="submit" onclick="submitLocation_Date()"> Start Planning </button>
+
 </form>
 
  <script src="map.js"></script>
@@ -45,6 +50,6 @@
   </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9bg29hrbFkIEeXDU7dEDMnQE-T4pK-Mg&libraries=places&callback=initAutocomplete"
          async defer></script>
-
+ <script src="requirements.js"></script>
   </body>
 </html>

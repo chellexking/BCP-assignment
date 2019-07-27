@@ -3,31 +3,34 @@
 <head>
 <link rel="stylesheet" href="requirements.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
   </head>
   <body>
-  <form action="specialNeeds.html">
+  <form action="specialNeeds.html" id="language-Preference">
   <div class="middle">
     <h2>Preferred Language?</h2> <br><br>
     <center>
     <label for="favcity">
-    <select id="favcity" name="select">
+    <select id="favlang" name="select">
   <option value="0">Choose your preferred Language</option>
-  <option value="1">English</option>
-  <option value="2">Chinese</option>
-  <option value="3">Hindi</option>
-  <option value="4">Spanish</option>
-  <option value="5">French</option>
-  <option value="6">Arabic</option>
-  <option value="7">Russian</option>
-  <option value="8">Bengali</option>
-  <option value="9">Portuguese</option>
-  <option value="10">Indonesian</option>
+  <option value="English">English</option>
+  <option value="Chinese">Chinese</option>
+  <option value="Hindi">Hindi</option>
+  <option value="Spanish">Spanish</option>
+  <option value="French">French</option>
+  <option value="Arabic">Arabic</option>
+  <option value="Russian">Russian</option>
+  <option value="Bengali">Bengali</option>
+  <option value="Portuguese">Portuguese</option>
+  <option value="Indonesian">Indonesian</option>
 </select>
 </label>
 </center>
 </div>
 
-<button class="learn-more" type="submit">
+<button class="learn-more" type="submit" onclick="submitLanguage()">
   <div class="circle">
     <span class="icon arrow"></span>
   </div>
@@ -43,5 +46,6 @@
     <p class="button-text">Back</p>
   </button>
 </form>
+<script src="requirements.js"></script>
     </body>
   </html>

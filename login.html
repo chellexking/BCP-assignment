@@ -21,33 +21,30 @@
       </div>
     </nav>
 
-    <div class="jumbotron jumbotron-fluid text-center">
-      <div class="container">
-        <h1 class = "c-title">Travel The World</h1>
-        <p style="font-family: 'Nunito', sans-serif; font-size: 110%"> We create personalized schedule for travellers based on their preferences and requirements. Automate your trip planning now!</p>
-        <br><br><br><a href="#" class="btn btn-info">Login</a>
-        <a href="#" class="btn btn-danger">Register</a>
-      </div>
-    </div>
+
 <center>
       <div id="login-div" class="main-div">
-        <h4> Login </h4>
-        <form id="registerForm">
+        <h4> Login to Account </h4> <br><br>
+        <form id="loginForm">
           <input type="email" placeholder="Email" id="email_input"/>
           <input type="password" placeholder="Password" id="password_input"/>
           <button onclick="login()"> Login to account </button>
-          <div class="register" onclick="register()"> Register </div>
+          <div class="register" onclick="registerForm()"> Register </div>
         </form>
         <br>
         <div class="socialLoginBtn" onclick="googleSignUp()"> <img src="google-login-button.png" height="38px"> </div>
         <div class="socialLoginBtn" onclick="facebookSignUp()"> <img src="facebook-login-button.png" height="50px"></div>
       </div>
 
-      <div id="user-div" class="loggedin-div">
-        <h3> Logged in </h3>
-        <p> Welcome to Trago. You are currently logged in. </p>
-        <h4> Build your own customized Trip Plan Here! <h4>
-        <button onclick="logout()"> Logout </button>
+      <div id="register-div" class="loggedin-div" style="display:none;">
+        <h4> Register An Account </h4> <br><br>
+        <form id="registerForm">
+          <input type="email" placeholder="Email" id="reg_email"/>
+          <input type="password" placeholder="Password" id="reg_password"/>
+          <button onclick="register()"> Register an account </button>
+          <p> Have an account? </p> <div class="login" onclick="loginForm()"> Log me in </div>
+        </form>
+        <!-- <button onclick="logout()"> Logout </button> -->
       </div>
 
       <script>
@@ -65,7 +62,7 @@
 
       // Make Auth and Firestore References
       const auth = firebase.auth();
-      const db = firebase.firestore();
+      // const db = firebase.firestore();
       </script>
 
 
