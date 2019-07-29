@@ -30,11 +30,11 @@ const dbRefObject4 = firebase.database().ref("Users/Special_Needs");
 function submitLocation_Date(){
   form.addEventListener('submit', (e) => {
    dbRefObject.set({
-         Location_Date:{
+
             Place: form.location.value,
             Date_Start: form.startDate.value,
             Date_End: form.endDate.value
-      }
+
    })
   })
 }

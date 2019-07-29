@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
+
+    <!-- print.js configuration -->
+    <script src="print.js"></script>
+    <link rel="stylesheet" type="text/css" href="print.css">
+
      <nav class="navbar navbar-dark bg-dark">
        <div class="container">
          <span class="navbar-brand mb-0 h1"><i class="fas fa-plane mr-2"></i>Trago</span>
@@ -32,14 +40,17 @@
     <body>
 <center>
 
+<div id="toPrint">
     <div class="border">
-      <h2 style="margin: 30px auto; padding-bottom:30px;"> ___ Days in Kuala Lumpur </h2>
+      <h4 style="margin: 30px auto;" id="Days"></h4>
+      <h4 style="margin: 30px auto;" id="Place" ></h4>
+
+
         <div class="time-line">
-  	<div class="item" data-title="1993">
+  	<div class="item" data-title="1993" >
   		<h2>Welcome,</h2>
   		<ul style="list-style: inside;">
-  			<li>Lorem ipsum dolor sit.</li>
-  			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, omnis.</li>
+  			<li>Hi there</li>
   			<li>Lorem, ipsum dolor.</li>
   			<li>Lorem ipsum dolor sit amet consectetur.</li>
   			<li>Lorem, ipsum dolor. <a href="#">test link here</a></li>
@@ -49,8 +60,16 @@
   		<h2>Welcome,</h2>
   		<ul style="list-style: inside;">
   			<li>Lorem ipsum dolor sit.</li>
-  			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, omnis.</li>
-  			<li>Lorem, ipsum dolor.</li>
+  			<li>How are you?</li>
+  			<li>Lorem ipsum dolor sit amet consectetur.</li>
+  			<li>Lorem, ipsum dolor. <a href="#">test link here</a></li>
+  		</ul>
+  	</div>
+  	<div class="item" >
+  		<h2>Welcome,</h2>
+  		<ul style="list-style: inside;">
+  			<li>Lorem ipsum dolor sit.</li>
+  			<li>My name is michelle.</li>
   			<li>Lorem ipsum dolor sit amet consectetur.</li>
   			<li>Lorem, ipsum dolor. <a href="#">test link here</a></li>
   		</ul>
@@ -59,81 +78,23 @@
   		<h2>Welcome,</h2>
   		<ul style="list-style: inside;">
   			<li>Lorem ipsum dolor sit.</li>
-  			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, omnis.</li>
-  			<li>Lorem, ipsum dolor.</li>
-  			<li>Lorem ipsum dolor sit amet consectetur.</li>
-  			<li>Lorem, ipsum dolor. <a href="#">test link here</a></li>
-  		</ul>
-  	</div>
-  	<div class="item"></div>
-  	<div class="item"></div>
-  	<div class="item">
-  		<h2>Welcome,</h2>
-  		<ul style="list-style: inside;">
-  			<li>Lorem ipsum dolor sit.</li>
-  			<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, omnis.</li>
-  			<li>Lorem, ipsum dolor.</li>
+  			<li>nice to meet you</li>
   			<li>Lorem ipsum dolor sit amet consectetur.</li>
   			<li>Lorem, ipsum dolor. <a href="#">test link here</a></li>
   		</ul>
   	</div>
   </div>
-  <br><br>
-  <button class="backButton" onclick="backToRequirements()"> Back to Requirements </button>
+  <br>
         </div>
 
+      </div>
+        <br>
+        <button type="button" onclick="printJS({ printable: 'toPrint', type: 'html', header: 'PrintJS - Form Element Selection' })">
+       Print
+      </button> <br><br>
 
-
-      <script type="text/javascript">
-
-
-
-				var waveBtn = (function () {
-		  'use strict';
-		  var btn = document.querySelectorAll('.wave'),
-			  tab = document.querySelector('.tab-bar'),
-			  indicator = document.querySelector('.indicator'),
-			  indi = 0;
-		  indicator.style.marginLeft = indi + 'px';
-
-		  for(var i = 0; i < btn.length; i++) {
-			btn[i].onmousedown = function (e) {
-			  var newRound = document.createElement('div'),x,y;
-
-			  newRound.className = 'cercle';
-			  this.appendChild(newRound);
-
-			  x = e.pageX - this.offsetLeft;
-			  y = e.pageY - this.offsetTop;
-
-			  newRound.style.left = x + "px";
-			  newRound.style.top = y + "px";
-			  newRound.className += " anim";
-
-			  indicator.style.marginLeft = indi + (this.dataset.num-1) * 200 + 'px';
-
-			  setTimeout(function() {
-				newRound.remove();
-			  }, 1200);
-			};
-		  }
-		}());
-
-    //this is for the tabs links
-    function OpenAttraction(){
-      window.location = "attractions.html";}
-      function OpenDaybyday(){
-      window.location = "daybyday.html";}
-      function OpenWheretostay(){
-      window.location = "whereToStay.html";}
-      function OpenWheretoeat(){
-      window.location = "whereToEat.html";}
-      function OpenTourguide(){
-      window.location = "tourGuide.html";}
-      function backToRequirements(){
-      window.location = "map.html";}
-
-      </script>
+        <button class="backButton" onclick="backToRequirements()"> Back to Requirements </button>
+      <script src="main.js"></script>
       </body>
 
 </html>

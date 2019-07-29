@@ -28,8 +28,7 @@
  <input id="pac-input" class="controls" type="text" name="location" placeholder="Where do you want to go?"> <br>
  <input type="text" name="startDate" id="demo-3_1" placeholder="Start Date" style="margin-top:20px;">
  <input type="text" name="endDate" id="demo-3_2" placeholder="End Date" style="margin-top:20px;"> <br>
-  <button type="submit" onclick="submitLocation_Date()"> Start Planning </button>
-
+  <button type="submit" onclick="submitLocation_Date(), getDays()"> Start Planning </button>
 </form>
 
  <script src="map.js"></script>
@@ -41,11 +40,12 @@
      singleDate: false,
      onSelect: function(start, end){
          var str = '';
-         str += start ? start.format('Do MMMM YYYY') + ' to ' : '';
-         str += end ? end.format('Do MMMM YYYY') : '...';
-         document.getElementById('result-3').innerHTML = str;
+         str += start ? start.format('YYYY MMMM Do') + ' to ' : '';
+         str += end ? end.format('YYYY MMMM Do') : '...';
+         // document.getElementById('result-3').innerHTML = str;
      }
  });
+
  </script>
   </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9bg29hrbFkIEeXDU7dEDMnQE-T4pK-Mg&libraries=places&callback=initAutocomplete"

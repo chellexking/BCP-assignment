@@ -1,0 +1,105 @@
+<!-- <html>
+<head>
+    <title>Print PDF using inline iFrame</title>
+</head>
+<body>
+  <iframe
+      src="airbnbLogo.png" id="myFrame"
+      frameborder="0" style="border:0;"
+      width="300" height="300">
+  </iframe>    <p>
+        <input type="button" id="bt" onclick="print()" value="Print PDF" />
+    </p>
+</body>
+
+<script>
+    function print() {
+        var objFra = document.getElementById('myFrame');
+        objFra.contentWindow.focus();
+        objFra.contentWindow.print();
+        console.log(myFrame.value);
+    }
+</script>
+</html> -->
+
+
+
+<html>
+<head>
+  <!-- print.js configuration -->
+  <!-- <script src="print.js"></script>
+  <link rel="stylesheet" type="text/css" href="print.css">
+
+
+    <title>Convert Table to PDF using JavaScript</title>
+    <style>
+        table
+        {
+            width: 300px;
+            font: 17px Calibri;
+        }
+        table, th, td
+        {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="tab">
+        <table>
+            <tr>
+                <th>Name</th>
+                    <th>Age</th>
+                        <th>Job</th>
+            </tr>
+            <tr>
+                <td>Brian</td>
+                    <td>41</td>
+                        <td>Blogger</td>
+            </tr>
+            <tr>
+                <td>Matt</td>
+                    <td>25</td>
+                        <td>Programmer</td>
+            </tr>
+            <tr>
+                <td>Arun</td>
+                    <td>39</td>
+                        <td>Writter</td>
+            </tr>
+        </table>
+    </div>
+
+    <button type="button" onclick="printJS('tab', 'html')">
+       Print Form
+    </button>
+
+    <button type="button" onclick="printJS({ printable: 'tab', type: 'html', header: 'PrintJS - Form Element Selection' })">
+   Print Form with Header
+</button> -->
+
+<!-- This is for styling purposes example -->
+<!-- <button type="button" onclick="printJS({
+     printable: someJSONdata,
+     properties: ['name', 'email', 'phone'],
+     type: 'json',
+     gridHeaderStyle: 'color: red;  border: 2px solid #3971A5;',
+     gridStyle: 'border: 2px solid #3971A5;'
+ })">
+   Print JSON Data
+</button> -->
+
+<script>
+var myStr = 'this,is,a,test';
+var newStr = myStr.replace(/,/g, '-');
+
+console.log( newStr );  // "this-is-a-test"
+
+</script>
+</body>
+</html>

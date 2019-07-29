@@ -6,8 +6,12 @@
      <link href="style.css" rel="stylesheet">
 
      <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
 
   <nav class="navbar navbar-dark bg-dark">
     <div class="container">
@@ -31,7 +35,8 @@
     </head>
     <body>
 <center>
-
+  <h3 style="margin: 30px auto;">  Where to Eat? </h3>
+  <h4 style="margin: 30px auto; padding-bottom:30px;" id="Place"></h4>
   <div class="container">
 <div class="row">
   <div class="card col-lg-4 col-md-6"style="width: 18rem;">
@@ -68,59 +73,7 @@
 <button class="backButton" onclick="backToRequirements()"> Back to Requirements </button>
 
 </div>
-
-      <script type="text/javascript">
-
-
-
-				var waveBtn = (function () {
-		  'use strict';
-		  var btn = document.querySelectorAll('.wave'),
-			  tab = document.querySelector('.tab-bar'),
-			  indicator = document.querySelector('.indicator'),
-			  indi = 0;
-		  indicator.style.marginLeft = indi + 'px';
-
-		  for(var i = 0; i < btn.length; i++) {
-			btn[i].onmousedown = function (e) {
-			  var newRound = document.createElement('div'),x,y;
-
-			  newRound.className = 'cercle';
-			  this.appendChild(newRound);
-
-			  x = e.pageX - this.offsetLeft;
-			  y = e.pageY - this.offsetTop;
-
-			  newRound.style.left = x + "px";
-			  newRound.style.top = y + "px";
-			  newRound.className += " anim";
-
-			  indicator.style.marginLeft = indi + (this.dataset.num-1) * 200 + 'px';
-
-			  setTimeout(function() {
-				newRound.remove();
-			  }, 1200);
-			};
-		  }
-		}());
-
-
-    //this is for the tabs links
-    function OpenAttraction(){
-      window.location = "attractions.html";}
-      function OpenDaybyday(){
-      window.location = "daybyday.html";}
-      function OpenWheretostay(){
-      window.location = "whereToStay.html";}
-      function OpenWheretoeat(){
-      window.location = "whereToEat.html";}
-      function OpenTourguide(){
-      window.location = "tourGuide.html";}
-      function backToRequirements(){
-      window.location = "map.html";}
-
-      </script>
-
+<script src="main.js"></script>
       </body>
 
 </html>

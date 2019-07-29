@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
+
+
      <nav class="navbar navbar-dark bg-dark">
        <div class="container">
          <span class="navbar-brand mb-0 h1"><i class="fas fa-plane mr-2"></i>Trago</span>
@@ -34,7 +39,8 @@
 <center>
 
     <div class="border">
-      <h2 style="margin: 30px auto; padding-bottom:30px;">  Where to stay in Kuala Lumpur? </h2>
+      <h3 style="margin: 30px auto;">  Where to Stay? </h3>
+      <h4 style="margin: 30px auto; padding-bottom:30px;" id="Place"></h4>
       <div class="wrapper">
       <div class="hotel-booking-container" style="float:left; margin-right: 50px; border: 1px solid transparent;">
       <div class="image" style="width: 292px; height: 195px; background-image: url('https://s.inspirockcdn.com/ds10/photos/Australia/2/royal-botanic-gardens-victoria-1812215246.jpg');" > </div>
@@ -48,9 +54,9 @@
       <div class="hotel-booking-container" style="float:left; margin-right: 50px;"><center>
           <div class="logo"><img src="tripadvisorLogo.png" style="height: 50px; width: 260px;"></img></div>
           <div class="text"> Millions of travel reviews on TripAdvisor </div>
-          <input type="text" class="datePanel" name="startDate" id="demo-3_1" placeholder="Start Date" style="margin-top:20px;">
-          <input type="text" class="datePanel" name="endDate" id="demo-3_2" placeholder="End Date" style="margin-top:20px;"> <br>
-          <button style="background:#00AF87; "> Find Hotels </button>
+          <input type="text" class="datePanel" name="startDate" id="demo11" placeholder="Start Date" style="margin-top:20px;">
+          <input type="text" class="datePanel" name="endDate" id="demo22" placeholder="End Date" style="margin-top:20px;"> <br>
+          <button style="background:#00AF87;" onclick="findHotels()"> Find Hotels </button>
         </div>
 
         <div class="hotel-booking-container" style="overflow:hidden;"><center>
@@ -72,14 +78,13 @@
         <script>
         ///Lightpick datepicker config
         var picker = new Lightpick({
-            field: document.getElementById('demo-3_1'),
-            secondField: document.getElementById('demo-3_2'),
+            field: document.getElementById('demo11'),
+            secondField: document.getElementById('demo22'),
             singleDate: false,
             onSelect: function(start, end){
                 var str = '';
                 str += start ? start.format('YYYY MMMM Do') + ' to ' : '';
                 str += end ? end.format('YYYY MMMM Do') : '...';
-                document.getElementById('result-3').innerHTML = str;
             }
         });
 
@@ -91,78 +96,70 @@
                 var str = '';
                 str += start ? start.format('YYYY MMMM Do') + ' to ' : '';
                 str += end ? end.format('YYYY MMMM Do') : '...';
-                document.getElementById('result-3').innerHTML = str;
+
             }
         });
 
-        </script>
 
-      <script type="text/javascript">
+        function findHotels() {
+          var checkIn = document.getElementById("demo11").value;
+          var checkOut = document.getElementById("demo22").value;
+          console.log(place);
 
-
-
-				var waveBtn = (function () {
-		  'use strict';
-		  var btn = document.querySelectorAll('.wave'),
-			  tab = document.querySelector('.tab-bar'),
-			  indicator = document.querySelector('.indicator'),
-			  indi = 0;
-		  indicator.style.marginLeft = indi + 'px';
-
-		  for(var i = 0; i < btn.length; i++) {
-			btn[i].onmousedown = function (e) {
-			  var newRound = document.createElement('div'),x,y;
-
-			  newRound.className = 'cercle';
-			  this.appendChild(newRound);
-
-			  x = e.pageX - this.offsetLeft;
-			  y = e.pageY - this.offsetTop;
-
-			  newRound.style.left = x + "px";
-			  newRound.style.top = y + "px";
-			  newRound.className += " anim";
-
-			  indicator.style.marginLeft = indi + (this.dataset.num-1) * 200 + 'px';
-
-			  setTimeout(function() {
-				newRound.remove();
-			  }, 1200);
-			};
-		  }
-		}());
-
-
-
+          var city = place.replace(/[^A-Z0-9]+/ig, "_");
+          var link = "https://www.tripadvisor.com.my/Hotels-" + "g298309-" + city + "-Hotels.html";
+          window.open(link);
+        }
         // this is for deeplinking
 // https://www.tripadvisor.com.my/Hotels-g660694
 // -Penang_Island_Penang-Hotels.html
 // https://www.tripadvisor.com.my/Hotels-g1777471-Kuala_Selangor_Selangor-Hotels.html
 
 
+
+
         function findHomes() {
           var checkIn = document.getElementById("demo1").value;
           var checkOut = document.getElementById("demo2").value;
+          console.log(place);
 
-          var link = "https://www.airbnb.com/s/Penang-Malaysia/homes?=autocomplete_checkin=" + checkIn + "&checkout=" + checkOut ;
-
+          var city = place.replace(/,/g, '-');
+          var link = "https://www.airbnb.com/s/" + city + "/homes?=autocomplete_checkin=" + checkIn + "&checkout=" + checkOut ;
           window.open(link);
         }
 
-        //this is for the tabs links
-        function OpenAttraction(){
-          window.location = "attractions.html";}
-          function OpenDaybyday(){
-          window.location = "daybyday.html";}
-          function OpenWheretostay(){
-          window.location = "whereToStay.html";}
-          function OpenWheretoeat(){
-          window.location = "whereToEat.html";}
-          function OpenTourguide(){
-          window.location = "tourGuide.html";}
-          function backToRequirements(){
-          window.location = "map.html";}
+        var arr = [
+        {
+            name: 'George Town',
+            key: 8803053
+        },
+        {
+            name: 'Kuala Lumpur',
+            key: 298570
+        },
+        {
+            name: 'Kuching',
+            key: 298309
+        },
+        {
+            name: 'Shah Alam',
+            key: 298316
+        }
+        ];
+
+        var x = "Kuala Lumpur";
+
+        function getKey(city){
+            return city.name === x;
+        }
+
+        var key = arr.find(getKey);
+
+        console.log(key);
+
       </script>
+      <script src="main.js"></script>
+
       </body>
 
 </html>
