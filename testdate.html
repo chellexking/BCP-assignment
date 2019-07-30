@@ -94,12 +94,142 @@
    Print JSON Data
 </button> -->
 
-<script>
+<!-- <script>
 var myStr = 'this,is,a,test';
 var newStr = myStr.replace(/,/g, '-');
 
 console.log( newStr );  // "this-is-a-test"
 
+</script> -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<section>
+		<div class="modal_open button">
+			CLICK HERE
+		</div>
+	</section>
+
+
+	<div class="modal">
+		<div class="modal_close main">
+			<i class="fas fa-times"></i>
+		</div>
+
+		<div class="copy">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris varius iaculis mauris, in lacinia purus congue porta. Nulla a semper mi, ac vehicula elit. Donec lacinia justo vitae libero viverra aliquet. Nam vitae semper ligula. Praesent volutpat purus et lectus elementum molestie. Vivamus fringilla ex et dui porttitor viverra. Suspendisse metus mauris, maximus id velit et, mollis cursus orci. Vestibulum ultrices, nibh malesuada hendrerit suscipit, purus urna vulputate nisi, sit amet faucibus elit augue in urna. Sed sagittis luctus rutrum. Morbi placerat molestie diam, ut mollis lacus hendrerit et. Duis auctor gravida eleifend. Suspendisse convallis condimentum purus.</p>
+
+			<a class="button">CTA</a>
+		</div>
+	</div>
+	<div class="modal_overlay"></div>
+
+<style>
+.button {
+  border: solid 3px #000;
+  display: inline-block;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+.button:hover {
+  background-color: #999;
+  color: #fff;
+  transform: translate3d(-5px, -5px, 0);
+  box-shadow: 5px 5px rgba(0,0,0,0.75);
+}
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s ease-in-out;
+  will-change: opacity;
+}
+.modal_overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate3d(-50%, 50px, 0);
+  z-index: 1001;
+  background-color: #ccc;
+  padding: 35px;
+  width: 100%;
+  max-width: 500px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s ease-in-out;
+  transition-delay: 0s;
+  will-change: transform, opacity;
+}
+.modal.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate3d(-50%, 0px, 0);
+  transition-delay: 0.25s;
+}
+.modal >.modal_close.main {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -25px;
+  right: -25px;
+  font-size: 20px;
+  border-radius: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #000;
+  border: solid 3px #fff;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+.modal >.modal_close.main:hover {
+  border: solid 3px #000;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+</style>
+
+<script>
+$(document).ready(function() {
+	//MODALS
+	//OPEN
+	$("body").on("click", ".modal_open", function(e) {
+		e.preventDefault();
+		$(".modal_overlay").addClass("active");
+		$(".modal").addClass("active");
+	});
+	//CLOSE
+	$("body").on("click", ".modal_overlay", function(e) {
+		e.preventDefault();
+		$(".modal_overlay").removeClass("active");
+		$(".modal").removeClass("active");
+	});
+	$("body").on("click", ".modal_close", function(e) {
+		e.preventDefault();
+		$(".modal_overlay").removeClass("active");
+		$(".modal").removeClass("active");
+	});
+});
+
 </script>
+
 </body>
 </html>

@@ -13,6 +13,14 @@
     <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
 
+    <!-- jquery library -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- define moment for date retrieval -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+
+
      <nav class="navbar navbar-dark bg-dark">
        <div class="container">
          <span class="navbar-brand mb-0 h1"><i class="fas fa-plane mr-2"></i>Trago</span>
@@ -38,32 +46,113 @@
 
     <div class="border">
       <h2 style="margin: 30px auto;"> Tour Guides </h2>
-      <h4 style="margin: 30px auto; padding-bottom:30px;" id="Place"></h4>
+      <h4 style="margin: 30px auto; " id="Days"></h4>
+      <h4 style="margin: 30px auto; " id="Place"></h4>
 
       <div class="wrapper">
 
       <div class="profile-card">
-
           <div class="profile-body">
                 <div class="author-img">
                     <img src="profileImg.jpeg" alt="">
                 </div>
                 <div class="name">Robert smith</div>
                 <div class="intro">
-                   <p>Robert smith is an enthsiastic and passionate story
-                       Teller.He loves to do different
+                   <p>Robert smith is an enthusiastic and passionate story
+                       teller. He loves to do different
                         home-made things and share to the world.
                    </p>
-                   <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> Kuala Lumpur <br><br>
-                   <button class="bookme"> Book me </button>
+                   <button class="bookme modal_open"> Book me </button> <br>
+                </div>
+          </div>
+      </div>
+      <div class="profile-card">
+          <div class="profile-body">
+                <div class="author-img">
+                    <img src="joanne.png" alt="">
+                </div>
+                <div class="name">Joanne Williams</div>
+                <div class="intro">
+                   <p>Joanne Williams is a compassionate caretaker and passionate story
+                       teller. She loves to socialize and is a big fan of art.
+                   </p>
+                   <button class="bookme modal_open"> Book me </button><br>
+                </div>
+          </div>
+      </div>
+      <div class="profile-card">
+          <div class="profile-body">
+                <div class="author-img">
+                    <img src="angharad.jpeg" alt="">
+                </div>
+                <div class="name">Angharad Bill</div>
+                <div class="intro">
+                   <p>Angharad Bill is a stotyteller and an adrenaline junkie.
+                     She loves to do different outdoor activities such as surfing and snowboarding.
+                   </p>
+                   <button class="bookme modal_open"> Book me </button> <br>
                 </div>
           </div>
       </div>
       <br><br>
       <button class="backButton" onclick="backToRequirements()"> Back to Requirements </button>
+
   </div>
 
   </div>
+
+<!-- this is for the popup form -->
+
+  <div class="modal_main" onload=getDates()>
+    <div class="copy">
+      <form>
+      <h4> Private Tour Guide Booking </h3>
+			<div class="bookingInfo"> Dates  </div>
+        <div id="allDates"></div>
+      <div class="bookingInfo"> Number of People </div>
+      <div class="drop">
+      <select id="favlang" name="select" class="dropdown">
+    <option value="0" class="dropdown">Number of People</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4+">4+</option>
+  </select></div><br>
+
+      <div class="bookingInfo">Guide Service Language</div>
+      <div class="drop">
+      <select id="favlang" name="select" class="dropdown">
+    <option value="0">Choose your preferred Language</option>
+    <option value="English">English</option>
+    <option value="Chinese">Chinese</option>
+    <option value="Hindi">Hindi</option>
+    <option value="Spanish">Spanish</option>
+    <option value="French">French</option>
+    <option value="Arabic">Arabic</option>
+    <option value="Russian">Russian</option>
+    <option value="Bengali">Bengali</option>
+    <option value="Portuguese">Portuguese</option>
+    <option value="Indonesian">Indonesian</option>
+  </select></div><br>
+      <div class="bookingInfo">Do you need Transportation? </div>
+      <input type="radio" name="transport" value="yes"> Yes<br>
+      <input type="radio" name="transport" value="no"> No<br> <br>
+      <h4> Tell us about yourself.. </h4> <br>
+      <div >
+      <input class="inputBox" type="text" name="firstname" placeholder="First Name"><br>
+      <input class="inputBox" type="text" name="lastname" placeholder="Last Name"><br>
+      <input class="inputBox" type="email" name="email" placeholder="Email"><br>
+      <input class="inputBox" type="phone" name="contact" placeholder="Contact Number"><br>
+      <br>
+    </div>
+      <button type="submit" class="submitBtn">Submit</button>
+    </form>
+		</div>
+		</div>
+
+  	<div class="modal_overlay"></div>
+
+
       <script src="main.js"></script>
 
       </body>

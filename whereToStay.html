@@ -107,7 +107,7 @@
           console.log(place);
 
           var city = place.replace(/[^A-Z0-9]+/ig, "_");
-          var link = "https://www.tripadvisor.com.my/Hotels-" + "g298309-" + city + "-Hotels.html";
+          var link = "https://www.tripadvisor.com.my/Hotels-" + "g" + code + "-" + city + "-Hotels.html";
           window.open(link);
         }
         // this is for deeplinking
@@ -149,13 +149,29 @@
 
         var x = "Kuala Lumpur";
 
-        function getKey(city){
-            return city.name === x;
-        }
+        // function getKey(city){
+        //     return city.name === x;
+        // }
+        //
+        // var code = arr.find(getKey);
 
-        var key = arr.find(getKey);
+        // var result = arr.map(a => a.key);
 
-        console.log(key);
+        // let result = arr.find(result => result.name === x);
+
+        var result = arr.filter(function (result) {
+          return result.name === x;
+        });
+
+        var code = result.map(function (getCode) {
+          return getCode.key;
+        });
+
+
+
+        console.log(code);
+
+
 
       </script>
       <script src="main.js"></script>
