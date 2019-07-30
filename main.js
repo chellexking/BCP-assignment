@@ -37,7 +37,49 @@ function errData(err){
   console.log(err);
 }
 
+//this is to store data into databaseURL//for input values to save to firebase
+const form = document.querySelector("#tourGuide-booking-form");
 
+//create References
+const refObj = firebase.database().ref("Tour Guide/Booking");
+
+//now the function begins
+function submitBooking(){
+  var e = document.getElementById("noPeople");
+  var no_People = e.options[e.selectedIndex].value;
+  var ee = document.getElementById("favlang");
+  var favLang = ee.options[ee.selectedIndex].value;
+
+  form.addEventListener('submit', (e) => {
+    refObj.set({
+      No_of_People: no_People,
+      Preferred_Language: favLang,
+      Transportation: document.querySelector('input[name="transport"]:checked').value,
+      First_Name: form.firstname.value,
+      Last_Name: form.lastname.value,
+      Email: form.email.value,
+      Contact: form.contact.value
+    })
+  })
+}
+
+
+
+//this is to retrieve data for tourist destination
+
+  firebase.database().ref("Kuala Lumpur/Attractions/Popular").on('value', function(snap){
+     snap.forEach(function(childNodes){
+        var childKey = childNodes.key;
+        console.log(childKey);
+        var div = document.createElement('div');
+        div.className = 'card col-lg-4 col-md-6';
+        document.getElementById('placeCard').appendChild(div);
+        div.appendChild(document.createTextNode(childKey));
+
+        // document.getElementById('titlePlace').appendChild(div);
+
+    });
+  });
 
 
 //this is for tourGuide form functionalities

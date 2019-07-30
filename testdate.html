@@ -101,7 +101,7 @@ var newStr = myStr.replace(/,/g, '-');
 console.log( newStr );  // "this-is-a-test"
 
 </script> -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 
@@ -229,7 +229,25 @@ $(document).ready(function() {
 	});
 });
 
-</script>
+</script> -->
 
+<script>
+generate(chartData) {
+      var container = document.createElement("div");
+      $(container).attr("class", "container2");
+
+      var myNode = document.getElementById(chartData.bindto.replace("#", "")).appendChild(container);
+
+      for(var i = 0; i < 10; i++) {
+        var div = document.createElement('div');
+        $(div).attr("class", "block");
+        var span = document.createElement('span');
+        var text = "Hello World!";
+        span.append(text);
+        div.append(span);
+        myNode.append(div);
+      }
+    }
+</script>
 </body>
 </html>

@@ -30,11 +30,9 @@ const dbRefObject4 = firebase.database().ref("Users/Special_Needs");
 function submitLocation_Date(){
   form.addEventListener('submit', (e) => {
    dbRefObject.set({
-
             Place: form.location.value,
             Date_Start: form.startDate.value,
             Date_End: form.endDate.value
-
    })
   })
 }
@@ -42,9 +40,7 @@ function submitLocation_Date(){
 function submitLocationActivity(){
   form1.addEventListener('submit', (e) => {
    dbRefObject1.set({
-         Activities_Preference:{
-          Preference: document.querySelector('input[name="activity"]:checked').value
-     }
+          Activity_Preference: document.querySelector('input[name="activity"]:checked').value
    })
   })
 }
@@ -52,22 +48,18 @@ function submitLocationActivity(){
 function submitDiet() {
   form2.addEventListener('submit', (e) => {
     dbRefObject2.set({
-          Diet_Preference:{
-           Preference: document.querySelector('input[name="meal"]:checked').value
-      }
+          Diet_Preference: document.querySelector('input[name="meal"]:checked').value
     })
   })
 }
 
 function submitLanguage(){
-  var e = document.getElementById ("favlang");
+  var e = document.getElementById("favlang");
   var language = e.options[e.selectedIndex].value;
 
   form3.addEventListener('submit', (e) => {
     dbRefObject3.set({
-           Language_Preference:{
-           Preference: language
-      }
+           Language_Preference:language
     })
   })
 }
@@ -75,9 +67,7 @@ function submitLanguage(){
 function submitSpecialNeeds(){
   form4.addEventListener('submit', (e) => {
     dbRefObject4.set({
-           Special_Needs:{
-           Special_Needs: document.querySelector('.specialNeeds:checked').value
-      }
+           Special_Needs:document.querySelector('.specialNeeds:checked').value
     })
   })
 }
