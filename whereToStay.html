@@ -173,7 +173,7 @@
           var checkOut = document.getElementById("demo2").value;
           // console.log(place);
 
-          var city = place.replace(/,/g, '-');
+          window.city = place.replace(/,/g, '-');
           var link = "https://www.airbnb.com/s/" + city + "/homes?=autocomplete_checkin=" + checkIn + "&checkout=" + checkOut ;
           window.open(link);
         }

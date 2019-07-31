@@ -37,6 +37,48 @@ function errData(err){
   console.log(err);
 }
 
+
+// this is to get data from db for user preferences
+var refPreference = firebase.database().ref("Users/");
+refPreference.once("value")
+  .then(function(snapshot) {
+    window.ActivityPreference = snapshot.child("Activity/Activity_Preference").val();
+    console.log(ActivityPreference);
+    window.cityStandardized = Place.replace(/[^A-Z0-9]+/ig, '-');
+  });
+
+  refPreference.once("value")
+    .then(function(snapshot) {
+      window.Place = snapshot.child("Location_Date/Place").val();
+      console.log(Place);
+    });
+
+
+function getAttractions(){
+    //this is to retrieve data for tourist attractions
+
+      var destination = "Kuala Lumpur/" + cityStandardized + "/Attractions/"+ActivityPreference;
+
+      firebase.database().ref(destination).on('value', function(snap){
+         snap.forEach(function(childNodes){
+            var childKey = childNodes.key;
+            var childValue = childNodes.val();
+            // $(document).ready(function(){
+            $("#placeCard").append("<div class=\"card col-lg-4 col-md-6\"> <b>" + childKey
+            + " </b> <br> <img class=\"card-img-top\" src=\""
+            + childValue
+            + "\">"
+            + "<div class=\"card-body\"> </div> "
+            + "</div>");
+
+            console.log(childValue);
+        // });
+
+            // document.getElementById('titlePlace').appendChild(div);
+        });
+      });
+};
+
 //this is to store data into databaseURL//for input values to save to firebase
 const form = document.querySelector("#tourGuide-booking-form");
 
@@ -63,30 +105,6 @@ function submitBooking(){
   })
 }
 
-
-
-//this is to retrieve data for tourist attractions
-
-  firebase.database().ref("Kuala Lumpur/Attractions/Popular").on('value', function(snap){
-     snap.forEach(function(childNodes){
-
-        var childKey = childNodes.key;
-        // console.log(childKey);
-        // var div = document.createElement('div');
-        // div.className = 'card col-lg-4 col-md-6';
-        // document.getElementById('placeCard').appendChild(div);
-        // div.appendChild(document.createTextNode(childKey));
-
-        // $(document).ready(function(){
-        $("#placeCard").append("<div class=\"card col-lg-4 col-md-6\">" + childKey
-        + "<img class=\"card-img-top\" src=\"https://images.unsplash.com/photo-1437719417032-8595fd9e9dc6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80\">"
-        + "<div class=\"card-body\"> <a href=\"\" class=\"btn btn-outline-primary btn-sm\"> Get Info </a> </div> "
-        + "</div>");
-    // });
-
-        // document.getElementById('titlePlace').appendChild(div);
-    });
-  });
 
 
 //this is for tourGuide form functionalities
