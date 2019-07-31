@@ -69,6 +69,7 @@ function submitBooking(){
 
   firebase.database().ref("Kuala Lumpur/Attractions/Popular").on('value', function(snap){
      snap.forEach(function(childNodes){
+
         var childKey = childNodes.key;
         console.log(childKey);
         var div = document.createElement('div');
@@ -77,7 +78,6 @@ function submitBooking(){
         div.appendChild(document.createTextNode(childKey));
 
         // document.getElementById('titlePlace').appendChild(div);
-
     });
   });
 
