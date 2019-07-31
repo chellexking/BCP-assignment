@@ -65,17 +65,24 @@ function submitBooking(){
 
 
 
-//this is to retrieve data for tourist destination
+//this is to retrieve data for tourist attractions
 
   firebase.database().ref("Kuala Lumpur/Attractions/Popular").on('value', function(snap){
      snap.forEach(function(childNodes){
 
         var childKey = childNodes.key;
-        console.log(childKey);
-        var div = document.createElement('div');
-        div.className = 'card col-lg-4 col-md-6';
-        document.getElementById('placeCard').appendChild(div);
-        div.appendChild(document.createTextNode(childKey));
+        // console.log(childKey);
+        // var div = document.createElement('div');
+        // div.className = 'card col-lg-4 col-md-6';
+        // document.getElementById('placeCard').appendChild(div);
+        // div.appendChild(document.createTextNode(childKey));
+
+        // $(document).ready(function(){
+        $("#placeCard").append("<div class=\"card col-lg-4 col-md-6\">" + childKey
+        + "<img class=\"card-img-top\" src=\"https://images.unsplash.com/photo-1437719417032-8595fd9e9dc6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80\">"
+        + "<div class=\"card-body\"> <a href=\"\" class=\"btn btn-outline-primary btn-sm\"> Get Info </a> </div> "
+        + "</div>");
+    // });
 
         // document.getElementById('titlePlace').appendChild(div);
     });
@@ -92,6 +99,7 @@ $(document).ready(function() {
 		$(".modal_overlay").addClass("active");
     getDates(startDate,endDate);
 	});
+
 	//CLOSE
 	$("body").on("click", ".modal_overlay", function(e) {
 		e.preventDefault();
@@ -100,8 +108,11 @@ $(document).ready(function() {
 	});
 });
 
+
 //to get all the dates in between the two dates
 function getDates(startDate, stopDate) {
+    $("#itinerary").empty();
+
     window.dateArray = [];
     var currentDate = moment(startDate);
     var stopDate = moment(stopDate);
@@ -111,16 +122,21 @@ function getDates(startDate, stopDate) {
     }
     console.log(dateArray);
 
-    var i;
     var text="";
-    for (i=0; i<dateArray.length; i++){
-      text += dateArray[i] + "<br>";
+    for (var i=0; i<dateArray.length; i++){
+      text = dateArray[i];
+      $("#itinerary").append("<div class=\"item\"> <h3> " + text
+      + "</h3> <ul style=\"list-style: inside;\">"
+      + "<li> Morning </li> <li> Afternoon </li> <li> Evening </li>"
+      + "</ul> </div>");
     }
-    document.getElementById("allDates").innerHTML= text;
-}
+    // document.getElementById("allDates").innerHTML= text;
+
+
+};
 
     //this is for the tabs links
-    function OpenAttraction(){
+      function OpenAttraction(){
       window.location = "attractions.html";}
       function OpenDaybyday(){
       window.location = "daybyday.html";}

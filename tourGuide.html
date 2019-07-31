@@ -103,12 +103,10 @@
 
 <!-- this is for the popup form -->
 
-  <div class="modal_main" onload=getDates()>
+  <div class="modal_main" onload="getDates(startDate,endDate)">
     <div class="copy">
       <form id="tourGuide-booking-form">
-      <h4> Private Tour Guide Booking </h3>
-			<div class="bookingInfo"> Dates  </div>
-        <div id="allDates"></div>
+      <h4> Private Tour Guide Booking </h3> <br>
       <div class="bookingInfo"> Number of People </div>
       <div class="drop">
       <select id="noPeople" name="select" class="dropdown">
