@@ -29,7 +29,7 @@
 				<li data-num="3" class="tab wave dark" onclick="OpenWheretostay();"> Where to Stay</li>
 				<li data-num="4" class="tab wave dark" onclick="OpenWheretoeat();">Where to Eat</li>
 				<li data-num="5" class="tab wave dark" onclick="OpenTourguide();">Tour Guide</li>
-				<div class="indicator"></div>
+				<div class="indicatorWhereToStay"></div>
 			</ul>
         </body>
 
@@ -100,76 +100,78 @@
             }
         });
 
+        // this is for deeplinking
+        // https://www.tripadvisor.com.my/Hotels-g660694
+        // -Penang_Island_Penang-Hotels.html
+        // https://www.tripadvisor.com.my/Hotels-g1777471-Kuala_Selangor_Selangor-Hotels.html
 
         function findHotels() {
+
+          //to retrieve value of city
+          var x = place;
+
+          var arr = {
+            "George Town" : 8803053,
+            "Kuching" : 298309,
+            "Kuala Lumpur" : 298570,
+            "Shah Alam" : 298316
+          }
+
+          for(let something of Object.keys(arr)){
+            let reg = "^.*" + something + ".*$";
+            if(new RegExp(reg).test(x)){
+              window.code = (arr[something]);
+              break;
+            }
+          }
+
           var checkIn = document.getElementById("demo11").value;
           var checkOut = document.getElementById("demo22").value;
-          console.log(place);
+          // console.log(place);
 
           var city = place.replace(/[^A-Z0-9]+/ig, "_");
           var link = "https://www.tripadvisor.com.my/Hotels-" + "g" + code + "-" + city + "-Hotels.html";
           window.open(link);
         }
-        // this is for deeplinking
-// https://www.tripadvisor.com.my/Hotels-g660694
-// -Penang_Island_Penang-Hotels.html
-// https://www.tripadvisor.com.my/Hotels-g1777471-Kuala_Selangor_Selangor-Hotels.html
-
-
-
 
         function findHomes() {
           var checkIn = document.getElementById("demo1").value;
           var checkOut = document.getElementById("demo2").value;
-          console.log(place);
+          // console.log(place);
 
           var city = place.replace(/,/g, '-');
           var link = "https://www.airbnb.com/s/" + city + "/homes?=autocomplete_checkin=" + checkIn + "&checkout=" + checkOut ;
           window.open(link);
         }
 
-        var arr = [
-        {
-            name: 'George Town',
-            key: 8803053
-        },
-        {
-            name: 'Kuala Lumpur',
-            key: 298570
-        },
-        {
-            name: 'Kuching',
-            key: 298309
-        },
-        {
-            name: 'Shah Alam',
-            key: 298316
-        }
-        ];
-
-        var x = "Kuala Lumpur";
-
-        // function getKey(city){
-        //     return city.name === x;
+        // var arr = [
+        // {
+        //     name: 'George Town',
+        //     key: 8803053
+        // },
+        // {
+        //     name: 'Kuala Lumpur',
+        //     key: 298570
+        // },
+        // {
+        //     name: 'Kuching',
+        //     key: 298309
+        // },
+        // {
+        //     name: 'Shah Alam',
+        //     key: 298316
         // }
+        // ];
+
+
+        // var result = arr.filter(function (result) {
+        //   return result.name === x;
+        // });
         //
-        // var code = arr.find(getKey);
-
-        // var result = arr.map(a => a.key);
-
-        // let result = arr.find(result => result.name === x);
-
-        var result = arr.filter(function (result) {
-          return result.name === x;
-        });
-
-        var code = result.map(function (getCode) {
-          return getCode.key;
-        });
-
-
-
-        console.log(code);
+        // var code = result.map(function (getCode) {
+        //   return getCode.key;
+        // });
+        // console.log(code);
 
 
 

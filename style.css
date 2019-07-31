@@ -44,17 +44,58 @@ body {
 			  user-select: none;
 			}
 
-			.indicator {
+			.indicatorAttraction {
 			  width: 200px;
 			  height: 3px;
 			  background: #2196F3;
 			  position: absolute;
 			  margin-top: 58px;
-			  margin-left:50px;
-
 			  -webkit-transition: margin 0.5s ease;
-
 			  transition: margin 0.5s ease;
+			}
+
+			.indicatorDaybyDay {
+				width: 200px;
+				height: 3px;
+				background: #2196F3;
+				position: absolute;
+				margin-top: 58px;
+				margin-left:200px;
+				-webkit-transition: margin 0.5s ease;
+				transition: margin 0.5s ease;
+			}
+
+			.indicatorWhereToStay {
+				width: 200px;
+				height: 3px;
+				background: #2196F3;
+				position: absolute;
+				margin-top: 58px;
+				margin-left:400px;
+				-webkit-transition: margin 0.5s ease;
+				transition: margin 0.5s ease;
+			}
+
+			.indicatorWhereToEat {
+				width: 200px;
+				height: 3px;
+				background: #2196F3;
+				position: absolute;
+				margin-top: 58px;
+				margin-left:600px;
+				-webkit-transition: margin 0.5s ease;
+				transition: margin 0.5s ease;
+			}
+
+			.indicatorTourGuide {
+				width: 200px;
+				height: 3px;
+				background: #2196F3;
+				position: absolute;
+				margin-top: 58px;
+				margin-left:800px;
+				-webkit-transition: margin 0.5s ease;
+				transition: margin 0.5s ease;
 			}
 
 			.cercle {
