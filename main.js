@@ -44,18 +44,25 @@ refPreference.once("value")
   .then(function(snapshot) {
     window.ActivityPreference = snapshot.child("Activity/Activity_Preference").val();
     console.log(ActivityPreference);
-    window.cityStandardized = Place.replace(/[^A-Z0-9]+/ig, '-');
   });
 
   refPreference.once("value")
     .then(function(snapshot) {
       window.Place = snapshot.child("Location_Date/Place").val();
       console.log(Place);
+      window.cityStandardized = Place.replace(/[^A-Z0-9]+/ig, '-');
     });
 
+    refPreference.once("value")
+      .then(function(snapshot) {
+        window.DietPreference = snapshot.child("Diet/Diet_Preference").val();
+        console.log(DietPreference);
+      });
 
+
+//retrieve data for tourist attractions and restaurants
 function getAttractions(){
-    //this is to retrieve data for tourist attractions
+  $("#placeCard").empty();
 
       var destination = "Kuala Lumpur/" + cityStandardized + "/Attractions/"+ActivityPreference;
 
@@ -75,6 +82,25 @@ function getAttractions(){
         // });
 
             // document.getElementById('titlePlace').appendChild(div);
+        });
+      });
+};
+
+function getRestaurants(){
+  $("#foodCard").empty();
+
+      var restaurants = "Kuala Lumpur/" + cityStandardized + "/Food/"+ DietPreference;
+      firebase.database().ref(restaurants).on('value', function(snap){
+         snap.forEach(function(childNodes){
+            var childKey1 = childNodes.key;
+            var childValue1 = childNodes.val();
+            $("#foodCard").append("<div class=\"card col-lg-4 col-md-6\"> <b>" + childKey1
+            + " </b> <br> <img class=\"card-img-top\" src=\""
+            + childValue1
+            + "\">"
+            + "<div class=\"card-body\"> </div> "
+            + "</div>");
+            console.log(childValue1)
         });
       });
 };
